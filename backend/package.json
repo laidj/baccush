@@ -1,0 +1,26 @@
+{
+    "name": "backend",
+    "type": "module",
+    "scripts": {
+      "start": "nodemon . || node App.js",
+      "generate": "npx prisma generate",
+      "migrate": "npx prisma migrate dev"
+    },
+    "dependencies": {
+      "@prisma/client": "^5.12.1",
+      "axios": "^1.6.8",
+      "bcrypt": "^5.1.1",
+      "body-parser": "^1.20.2",
+      "cors": "^2.8.5",
+      "express": "^4.19.2",
+      "jsonwebtoken": "^9.0.2",
+      "pinia": "^2.1.7",
+      "sqlite3": "^5.1.7"
+    },
+    "devDependencies": {
+      "drizzle-kit": "^0.20.2",
+      "nodemon": "^3.1.0",
+      "prisma": "^5.9.1"
+    }
+  }
+  

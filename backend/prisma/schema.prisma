@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id                   Int                    @id @default(autoincrement())
+  fullname             String
+  email                String                 @unique
+  password             String
+  AuctionItem          AuctionItem[]
+  AuctionItemBidAmount AuctionItemBidAmount[]
+}
+
+model AuctionItem {
+  id                   String                 @id
+  productId            String                 @unique
+  productName          String
+  productDescription   String
+  productCategory      String
+  biddingEndDate       DateTime
+  bid_time             DateTime               @updatedAt
+  bid_amount           Int
+  user_id              Int
+  User                 User                   @relation(fields: [user_id], references: [id])
+  AuctionItemBidAmount AuctionItemBidAmount[]
+}
+
+model AuctionItemBidAmount {
+  id             Int         @id @default(autoincrement())
+  bid_amount     Int
+  bid_time       DateTime    @updatedAt
+  auctionItem_id String
+  user_id        Int
+  User           User        @relation(fields: [user_id], references: [id])
+  AuctionItem    AuctionItem @relation(fields: [auctionItem_id], references: [id])
+}

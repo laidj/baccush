@@ -1,17 +1,11 @@
-Frontendis
+# Frontend
+    cd Frontend
+    npm install
+    npm run dev
 
-npm i
-npm run dev
-
-
-Backendis
-
-npm i
-node app.js
-
-Databaasiis
-
-cd
-npx prisma format
-npx prisma migrate dev
-
+## Backend
+    cd Backend
+    npm install
+    npx prisma format
+    npx prisma migrate dev
+    npm start

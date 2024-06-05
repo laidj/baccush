@@ -1,26 +1,40 @@
 {
-    "name": "backend",
-    "type": "module",
-    "scripts": {
-      "start": "nodemon . || node App.js",
-      "generate": "npx prisma generate",
-      "migrate": "npx prisma migrate dev"
+  "name": "backend",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon . || node index.js",
+    "generate": "npx prisma generate",
+    "migrate": "npx prisma migrate dev",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.12.1",
+    "axios": "^1.6.8",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "pinia": "^2.1.7",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
+    "babel-jest": "^29.7.0",
+    "drizzle-kit": "^0.20.2",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.0",
+    "prisma": "^5.9.1",
+    "supertest": "^7.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.m?js$": "babel-jest"
     },
-    "dependencies": {
-      "@prisma/client": "^5.12.1",
-      "axios": "^1.6.8",
-      "bcrypt": "^5.1.1",
-      "body-parser": "^1.20.2",
-      "cors": "^2.8.5",
-      "express": "^4.19.2",
-      "jsonwebtoken": "^9.0.2",
-      "pinia": "^2.1.7",
-      "sqlite3": "^5.1.7"
-    },
-    "devDependencies": {
-      "drizzle-kit": "^0.20.2",
-      "nodemon": "^3.1.0",
-      "prisma": "^5.9.1"
-    }
+    "testMatch": [
+      "<rootDir>/test/**/*.test.js"
+    ]
   }
-  
+}
